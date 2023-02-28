@@ -42,5 +42,6 @@ export const getStaticProps: GetStaticProps<SinglePostProps> = async (
     props: {
       post: data,
     },
+    revalidate: 5,
   }
 }

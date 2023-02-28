@@ -1,8 +1,8 @@
-import Header from '@components/Common/Header'
-import react, { useEffect, useState } from 'react'
-export interface AboutPageProps {}
-import dynamic from 'next/dynamic'
+import { MainLayout } from '@components/layouts'
 import { useRouter } from 'next/dist/client/router'
+import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
+export interface AboutPageProps {}
 
 const DynamicHeader = dynamic(() => import('@components/Common/Header'), {
   ssr: false,
@@ -48,3 +48,4 @@ export default function AboutPage(props: AboutPageProps) {
     </div>
   )
 }
+AboutPage.Layout = MainLayout
