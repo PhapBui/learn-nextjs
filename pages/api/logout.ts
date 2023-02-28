@@ -2,6 +2,9 @@
 import Cookies from 'cookies';
 import httpProxy from 'http-proxy';
 import { NextApiRequest, NextApiResponse } from 'next';
+type Data = {
+  message: string;
+};
 
 export const config = {
   api: {
@@ -11,7 +14,7 @@ export const config = {
 
 const proxy = httpProxy.createProxyServer();
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<any>) {
+export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   if (req.method !== 'POST') {
     return res.status(404).json({ message: `${req.method} method is not supported!` });
   }
