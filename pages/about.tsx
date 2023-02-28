@@ -1,11 +1,13 @@
-import { AdminLayout } from '@components/layouts';
-import { useAuth } from '@hooks/use-auth';
 import { useRouter } from 'next/dist/client/router';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+import { Box, Typography } from '@mui/material';
+
+import { AdminLayout } from '@components/layouts';
+import { useAuth } from '@hooks/use-auth';
 export interface AboutPageProps {}
 
-const DynamicHeader = dynamic(() => import('@components/Common/Header'), {
+const DynamicHeader: any = dynamic(() => import('@components/Common/Header'), {
   ssr: false,
 });
 export default function AboutPage(props: AboutPageProps) {
@@ -43,8 +45,10 @@ export default function AboutPage(props: AboutPageProps) {
     } catch (error) {}
   }
   return (
-    <div>
-      <h3>About Page</h3>
+    <Box>
+      <Typography component="h1" variant="h3" color="primary.main">
+        About Page
+      </Typography>
       <button onClick={handleLogOutClick}>Logout</button>
       <DynamicHeader />
       <ul className="post-list">
@@ -54,7 +58,7 @@ export default function AboutPage(props: AboutPageProps) {
       </ul>
 
       <button onClick={hanleChangeNextPage}>next page</button>
-    </div>
+    </Box>
   );
 }
 AboutPage.Layout = AdminLayout;

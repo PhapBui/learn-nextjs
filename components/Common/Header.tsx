@@ -1,7 +1,7 @@
-import * as React from 'react'
+import * as React from 'react';
 
 export interface HeaderProps {}
 
 export default function Header(props: HeaderProps) {
-  return <div>Cho nay co header</div>
+  return <h1>Cho nay co header</h1>;
 }
