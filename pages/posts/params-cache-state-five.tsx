@@ -29,7 +29,7 @@ export default function App(props: ParamsPageProps) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  context.res.setHeader('Cache-Control', 's-maxage=5')
+  context.res.setHeader('Cache-Control', 's-maxage=5, stale-while-revalidate=5')
   await new Promise((res) => setTimeout(res, 3000))
 
   const postId = context.query.postId
