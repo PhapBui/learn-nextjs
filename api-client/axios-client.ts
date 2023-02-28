@@ -16,7 +16,7 @@ const axiosClient = axios.create({
 //     }
 // )
 
-axios.interceptors.response.use(
+axiosClient.interceptors.response.use(
   function (respone) {
     return respone.data;
   },
