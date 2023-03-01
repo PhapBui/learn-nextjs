@@ -25,7 +25,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 
     const handleLoginResponce = (proxyRes: any, req: any, res: any) => {
       let body = '';
-      proxyRes.on('data', function (chunk) {
+      proxyRes.on('data', function (chunk: any) {
         body += chunk;
       });
 

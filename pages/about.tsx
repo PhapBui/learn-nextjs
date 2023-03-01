@@ -1,15 +1,12 @@
-import { useRouter } from 'next/dist/client/router';
-import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
+import { useRouter } from 'next/dist/client/router';
+import { useEffect, useState } from 'react';
 
+import { Header } from '@components/Common';
 import { AdminLayout } from '@components/layouts';
 import { useAuth } from '@hooks/use-auth';
 export interface AboutPageProps {}
 
-const DynamicHeader: any = dynamic(() => import('@components/Common/Header'), {
-  ssr: false,
-});
 export default function AboutPage(props: AboutPageProps) {
   const [postList, setPostList] = useState([]);
   const router = useRouter();
@@ -50,9 +47,9 @@ export default function AboutPage(props: AboutPageProps) {
         About Page
       </Typography>
       <button onClick={handleLogOutClick}>Logout</button>
-      <DynamicHeader />
+      <Header />
       <ul className="post-list">
-        {postList.map((a) => (
+        {postList.map((a: any) => (
           <li key={a.id}>{a.title}</li>
         ))}
       </ul>

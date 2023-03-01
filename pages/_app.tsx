@@ -7,8 +7,8 @@ import { EmptyLayout } from '@components/layouts';
 import { AppPropsWithLayout } from '@models/common';
 import { createEmotionCache, theme } from '@utils/index';
 
-import axiosClient from '@api/axios-client';
 import '../styles/globals.css';
+import axiosClient from '@/api/axios-client';
 
 const clinetSideEmotionCache = createEmotionCache();
 

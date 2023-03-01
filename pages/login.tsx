@@ -1,4 +1,4 @@
-import { authAPi } from '@api/auth-api';
+import { authAPi } from '@/api';
 import { useAuth } from '@hooks/use-auth';
 import { useRouter } from 'next/router';
 import * as React from 'react';
