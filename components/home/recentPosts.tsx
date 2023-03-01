@@ -12,20 +12,34 @@ export function RecentPosts() {
     {
       id: 1,
       title: 'Making a design system from scratch',
-      publishedDate: '1648363391671',
+      publishedDate: '2023-02-28T20:47:06Z',
       tagList: ['Design', 'Pattern'],
       description:
         'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
-      author: 'Pakiru',
+
+      author: {
+        name: 'kakak',
+        title: 'Front End',
+        profileUrl: 'http://localhost:3000/blogs',
+        avatarUrl:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQANuzW26OgZq2wVxkTuj7oZ5nUdPvTA2YKXg&usqp=CAU',
+      },
+      slug: '',
     },
     {
       id: 2,
       title: 'Creating pixel perfect icons in Figma',
-      publishedDate: '1648363391671',
+      publishedDate: '2023-02-28T20:47:06Z',
       tagList: ['Figma', 'Icon Design'],
       description:
         'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
-      author: 'Pakiru',
+      author: {
+        name: '',
+        title: '',
+        profileUrl: '',
+        avatarUrl: '',
+      },
+      slug: '',
     },
   ];
 
