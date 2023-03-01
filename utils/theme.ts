@@ -59,6 +59,23 @@ export let theme = createTheme({
         },
       ],
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          paddingInline: 1,
+          '&:hover': { cursor: 'pointer' },
+        },
+      },
+      variants: [
+        {
+          props: { color: 'secondary' },
+          style: {
+            color: 'white',
+            backgroundColor: '#142840',
+          },
+        },
+      ],
+    },
   },
   breakpoints: {
     values: {
