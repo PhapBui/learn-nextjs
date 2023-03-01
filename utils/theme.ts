@@ -18,7 +18,9 @@ export let theme = createTheme({
   },
   components: {
     MuiContainer: {
-      defaultProps: {},
+      defaultProps: {
+        maxWidth: 'md',
+      },
       styleOverrides: {
         maxWidthSm: {
           maxWidth: 680,

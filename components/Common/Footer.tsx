@@ -4,5 +4,9 @@ import { Box } from '@mui/system';
 export interface FooterProps {}
 
 export function Footer(props: FooterProps) {
-  return <Box>Cho nay co footer</Box>;
+  return (
+    <Box component="footer" py={2}>
+      Cho nay co footer
+    </Box>
+  );
 }

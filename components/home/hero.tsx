@@ -11,6 +11,7 @@ export function HeroSection() {
           spacing={8}
           direction={{ md: 'row', xs: 'column-reverse' }}
           justifyContent={{ md: 'flex-start', xs: 'center' }}
+          alignItems="center"
           textAlign={{ md: 'left', xs: 'center' }}
         >
           <Box>
@@ -32,7 +33,6 @@ export function HeroSection() {
               boxShadow: '-5px 13px ',
               color: 'secondary.light',
               borderRadius: '50%',
-              height: 'fit-content',
             }}
           >
             <Image src={png} layout="responsive" alt="avatar" />

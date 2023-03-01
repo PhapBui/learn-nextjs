@@ -10,7 +10,7 @@ export function MainLayout({ children }: LayoutProps) {
     <Stack minHeight={'100vh'}>
       <Header />
       <Box component="main" flex={1}>
-        <Container maxWidth="md">{children}</Container>
+        {children}
       </Box>
 
       <Footer />
