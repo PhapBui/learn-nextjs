@@ -1,6 +1,7 @@
 import { authAPi } from './../api-client/auth-api';
 import useSWR from 'swr';
 import { PublicConfiguration } from 'swr/_internal';
+import { LoginPayLoad } from '@models/auth';
 
 export function useAuth(option?: Partial<PublicConfiguration>) {
   const {
@@ -15,11 +16,10 @@ export function useAuth(option?: Partial<PublicConfiguration>) {
 
   const firstLoading = profile === undefined && error === undefined;
 
-  async function login() {
-    await authAPi.login({
-      username: 'kakaka',
-      password: '123kiasd',
-    });
+  async function login(payload: LoginPayLoad) {
+    console.log(payload);
+
+    await authAPi.login(payload);
 
     await mutate();
   }
@@ -27,6 +27,7 @@ export function useAuth(option?: Partial<PublicConfiguration>) {
     await authAPi.logout();
     mutate({}, false);
   }
+  console.log(profile);
 
   return {
     profile,

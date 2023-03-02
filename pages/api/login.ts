@@ -31,7 +31,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 
       proxyRes.on('end', function () {
         try {
-          const { accessToken, expiredAt } = JSON.parse(body);
+          const isSuccess =
+            proxyRes.statusCode && proxyRes.statusCode >= 200 && proxyRes.statusCode < 300;
+
+          if (!isSuccess) {
+            (res as NextApiResponse).status(proxyRes.statusCode || 500).json(body);
+            return resolve(true);
+          }
+
+          const { accessToken, expiredAt, error } = JSON.parse(body);
 
           const cookies = new Cookies(req, res, { secure: process.env.NODE_ENV !== 'development' });
 
@@ -41,7 +49,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
             expires: new Date(expiredAt),
           });
 
-          (res as NextApiResponse).status(200).json({ message: 'success', token: accessToken });
+          (res as NextApiResponse).status(200).json({ message: error || 'Login Successfully' });
         } catch (error) {
           (res as NextApiResponse).status(500).json({ message: 'sth wrong' });
         }
