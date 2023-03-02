@@ -20,9 +20,10 @@ export async function getBlogList(): Promise<Post[]> {
       slug: data.slug,
 
       title: data.title,
-      description: excerpt,
+      description: excerpt || '',
       mdContent: content,
       tagList: data.tags,
+      thumbnailUrl: data.image,
 
       publishedDate: data.date,
       author: {

@@ -7,25 +7,40 @@ import remarkRehype from 'remark-rehype';
 import rehypeFormat from 'rehype-format';
 import rehypeDocument from 'rehype-document';
 import rehypeStringify from 'rehype-stringify';
-import { Divider } from '@mui/material';
-import { Container } from '@mui/system';
+import { Divider, Box, Container } from '@mui/material';
 import { MainLayout } from '@components/layouts';
-
+import remarkToc from 'remark-toc';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import remarkPrism from 'remark-prism';
+import Script from 'next/script';
+import { SEO } from '@components/Common';
 export interface BlogDetailsProps {
   post: Post;
 }
 
 export default function BlogDetailsPage({ post }: BlogDetailsProps) {
-  // if (!post) return null
+  if (!post) return null;
   return (
-    <Container>
-      Blog Detail Page
-      <h2>{post.title}</h2>
-      <p>{post.author.name}</p>
-      <p>{post.description}</p>
-      <Divider />
-      <div dangerouslySetInnerHTML={{ __html: post.htmlContent || '' }}></div>
-    </Container>
+    <Box>
+      <SEO
+        data={{
+          title: `${post.title} | My Blog`,
+          description: post.description,
+          url: `${process.env.PAGE_ROOT_URL}/blogs/${post.slug}`,
+          thumbnailUrl: post.thumbnailUrl || '',
+        }}
+      />
+      <Container>
+        Blog Detail Page
+        <h2>{post.title}</h2>
+        <p>{post.author.name}</p>
+        <p>{post.description}</p>
+        <Divider />
+        <div dangerouslySetInnerHTML={{ __html: post.htmlContent || '' }}></div>
+      </Container>
+      <Script src="/prism.js" strategy="afterInteractive"></Script>
+    </Box>
   );
 }
 
@@ -52,8 +67,13 @@ export const getStaticProps: GetStaticProps<BlogDetailsProps> = async (
   if (!post) return { notFound: true };
   const file = await unified()
     .use(remarkParse)
+    .use(remarkToc, { heading: 'AGENGA' })
+    .use(remarkPrism)
     .use(remarkRehype)
-    .use(rehypeDocument, { title: 'Blog details Page' })
+
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
+    .use(rehypeDocument, { title: post.title })
     .use(rehypeFormat)
     .use(rehypeStringify)
     .process(post?.mdContent || '');

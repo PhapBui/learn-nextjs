@@ -16,7 +16,7 @@ export function SEO({ data }: SeoProps) {
   const { title, description, url, thumbnailUrl } = data;
   return (
     <Head>
-      <title>CRUD | Nextjs</title>
+      <title>{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
 

@@ -17,6 +17,13 @@ export let theme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: {
+          scrollBehavior: 'smooth',
+        },
+      },
+    },
     MuiContainer: {
       defaultProps: {
         maxWidth: 'md',

@@ -7,6 +7,7 @@ author_url: https://github.com/paulnguyen-mn
 author_image_url: https://avatars3.githubusercontent.com/u/31444102?s=400&u=c545a527aa31843e1361462e410c0f51863e8e26&v=4
 tags: [reactjs, lộ trình học reactjs cơ bản]
 date: '2023-02-28T20:47:06Z'
+image: https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80
 ---
 
 Rất nhiều bạn thắc mắc không biết là học ReactJS là học những gì? Rồi bắt đầu từ đâu? Sử dụng những package, thư viện nào, ... Để giúp các bạn trả lời câu hỏi đó, mình có tổng hợp lại một số nguồn tham khảo cũng như kinh nghiệm cá nhân của mình để viết ra lộ trình học ReactJS này, hi vọng giúp ích được cho các bạn. 😉
@@ -22,6 +23,8 @@ Rất nhiều bạn thắc mắc không biết là học ReactJS là học nhữ
   - Tiếng Anh (vì tài liệu đa số là Tiếng Anh)
 
 Nếu như mọi người chưa biết Javascript là gì, thì mình khuyên các bạn nên học JS trước rồi hẵn sang ReactJS nhé, kẻo ngợp nè! 😉
+
+## AGENGA
 
 ## Mảng kiến thức cơ bản (BẮT BUỘC)
 

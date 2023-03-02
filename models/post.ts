@@ -10,7 +10,8 @@ export interface Post {
   title: string;
   publishedDate: string;
   tagList?: string[];
-  description: string | undefined;
+  description: string;
+  thumbnailUrl?: string;
 
   author: Author;
   slug: string;

@@ -8,6 +8,7 @@ import { AppPropsWithLayout } from '@models/common';
 import { createEmotionCache, theme } from '@utils/index';
 
 import '../styles/globals.css';
+import '../styles/prism.css';
 import axiosClient from '@/api/axios-client';
 
 const clinetSideEmotionCache = createEmotionCache();
