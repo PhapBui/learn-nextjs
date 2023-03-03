@@ -2,6 +2,7 @@ import { authAPi } from '@/api';
 import { LoginForm } from '@components/auth';
 import { useAuth } from '@hooks/use-auth';
 import { LoginPayLoad } from '@models/auth';
+import { Box, Paper, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
@@ -14,39 +15,22 @@ export default function LoginPage(props: LoginPageProps) {
 
   const router = useRouter();
 
-  async function handleLoginClick() {
-    try {
-      await login({
-        username: 'kakaka',
-        password: '123kiasd',
-      });
-    } catch (error) {}
-  }
   async function handleLoginSubmitClick(payload: LoginPayLoad) {
     try {
       await login(payload);
-    } catch (error) {}
-  }
-  async function handleLogOutClick() {
-    try {
-      await logout();
-    } catch (error) {}
-  }
-  async function handleGetProfileClick() {
-    try {
-      await authAPi.getProfile();
-    } catch (error) {}
+    } catch (error) {
+      console.log('Failed to login: ', error);
+    }
   }
 
   return (
-    <div>
-      Login Page
-      <h2>Profile</h2>
-      <LoginForm onSubmit={handleLoginSubmitClick} />
-      <p>{JSON.stringify(profile || {}, null, 4)}</p>
-      <button onClick={handleLoginClick}>Login</button>
-      <button onClick={handleLogOutClick}>Logout</button>
-      <button onClick={() => router.push('/about')}>Go About</button>
-    </div>
+    <Box>
+      <Paper elevation={4} sx={{ mt: 4, p: 2, mx: 'auto', maxWidth: '480px', textAlign: 'center' }}>
+        <Typography component={'h1'} variant="h3">
+          Login Page
+        </Typography>
+        <LoginForm onSubmit={handleLoginSubmitClick} />
+      </Paper>
+    </Box>
   );
 }
